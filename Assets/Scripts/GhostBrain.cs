@@ -28,7 +28,7 @@ public class GhostBrain : MonoBehaviour
         StartPos = transform.position;
 
         GetComponent<CircleCollider2D>().radius = DetectRadius;
-        transform.GetChild(0).localScale = new Vector3(DetectRadius, DetectRadius, 1);
+        transform.GetChild(0).localScale = new Vector3(DetectRadius * 2, DetectRadius * 2, 1);
     }
     void Update()
     {
