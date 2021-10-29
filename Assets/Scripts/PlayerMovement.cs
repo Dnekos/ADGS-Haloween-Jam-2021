@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 	// should the player immediately stop when keys are released?
 	[SerializeField] private bool stopImmediately = true;
 
+	[SerializeField] private bool enableBoost = true;
 	[SerializeField] private float maxBoostSpeed = 10f;
 
 	[SerializeField] private float minSpeed = .05f;
@@ -30,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
 
 	public void OnMove(InputAction.CallbackContext context)
 	{
-		Debug.Log(context.ReadValue<Vector2>());
 		inputDir = context.ReadValue<Vector2>();
 	}
 
@@ -38,24 +38,28 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if(context.started)
 			isBoosting = true;
-		
+		else if (context.canceled)
+		{
+			isBoosting = false;
+		}
 	}
 
 	private void FixedUpdate()
 	{
-		Debug.Log(rigidBody.velocity);
+		float currentMaxSpeed = (isBoosting&&enableBoost) ? (maxBoostSpeed) : (maxSpeed);
+		
         if (inputDir == Vector2.zero && stopImmediately)
         {
 	       rigidBody.velocity = Vector2.zero;
         }
-		
-        if (inputDir != Vector2.zero && rigidBody.velocity.magnitude < maxSpeed)
+
+        if (inputDir != Vector2.zero && rigidBody.velocity.magnitude < currentMaxSpeed)
         {
 	        rigidBody.AddForce(inputDir.normalized*acceleration*rigidBody.mass);
         }
 
-        else if (inputDir != Vector2.zero && rigidBody.velocity.magnitude > maxSpeed)
-	        rigidBody.velocity = inputDir*maxSpeed;
+        else if (inputDir != Vector2.zero && rigidBody.velocity.magnitude > currentMaxSpeed)
+	        rigidBody.velocity = inputDir*currentMaxSpeed;
 
         if (rigidBody.velocity.magnitude < minSpeed)
         {

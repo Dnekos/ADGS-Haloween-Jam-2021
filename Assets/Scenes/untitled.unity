@@ -123,17 +123,13 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &1066383183
+--- !u!1001 &958104728
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4359566554393794536, guid: 058a848f24cacc6498d8195f86d20600, type: 3}
-      propertyPath: m_LinearDrag
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 5885507937849602282, guid: 058a848f24cacc6498d8195f86d20600, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
