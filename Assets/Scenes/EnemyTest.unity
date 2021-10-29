@@ -217,6 +217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost_temp (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1626875242135857808, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1626875242135857835, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -343,6 +347,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost_temp (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1626875242135857808, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1626875242135857835, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -399,6 +407,10 @@ PrefabInstance:
     - target: {fileID: 1626875242135857808, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
       propertyPath: m_Name
       value: Ghost_temp (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626875242135857808, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1626875242135857835, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
       propertyPath: m_RootOrder
@@ -477,7 +489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAAIezbUbTQTAIAAPMEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzk0HTKZAb61DSA8EJrSTiy9CWmMNsuTRR/ga/ntXso0dOj0h9r1dvbe78oUIZStgTpuFEXypOZDvAxLO5MugA1/gSHdabcQZWs674K4IJBo5b9QJjfFRSLO6BGcE+6F2MpCHGPRK5NqUc76DVFtnMZxTaQEho13IVhi6DMgRfx5mIeWEp2QSTmc8zYaDKx4ZKAemo7bEllazvGKSlhXwILkjJ8Nb3WFNVGin4QTpTEspbKOFuFMVvaa0sh6dIIELit6igMAvQOwKF+r1k1d5bsE1ogw9PQmDLaqrkp+67ltJ7b5W9kGlD/d8e4yS6prLf+CHUYRzo8uX9tpRNOQKwfZv9MSodb2+9sNPn3V7daByT7cS3gtQr3phtFccQWd8SPUWkqfu781ZWgDbd/Fa6l3QV/+fTvBwjeaPqRTlNkBfH+vARurY7jh7MDiYXyg4boZtSmA0qPhj4Tfd9VeoAZ6FsQ6hxqUK8rbam0Al89iz4Ma7VBsFMdyIrkBR6U5rLOPuJ3iH9a69Q55peCzN5Q3WvoG7lBju+MPhHbTWh9uwbKEPS7DFyjspFHSiA/CKfUq1UvWC9XvSpm28ySnrpe284J9Xi8CU02Q8otPpmG6ns+kD286SyShPJmM2TqajGYm7JxT6pHJdC23ag1NTXXGFe9Z+QwYLQ6u47NzQw0KcS91ruVC53jADoFZ1hZtwMHgJPko+5wIbtAHnhIrzJpeMSM32wLNboSw6nR+doVlXJSOV+NAuRDKSxo9GRq7k+hdQSwMEFAAACAgAAAAh7CGnFo1tAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTVUVBKL0osyCgGihiCOKWZKSB2tFKqRUqikbFhooWFcWKShaWFbnKSpZG5YZqRuXGysZGFoaVSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAAh7NtRtNBMAgAA8wQAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAAh7CGnFo1tAAAAeAAAAAkAJAAAAAAAAAAAAAAAmQIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABRAwAAAAA=
+    dataString: UEsDBBQAAAgIAAAAIewUMvCXSwIAAPEEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VEtz2jAQ/iuMzk0HTKZAb61DSA8EJrSTiy9CWmMNsuTRI7yG/96VbGOHTk8s+327++1DvhChbAXMabMwgi81B/J9QIJNvgw68AWOdKfVRpyh5bwL7opAopHzRp3Q6B+FMKtLcEawH2onA3mITq9Erk055ztItXUW3TmVFhAy2oVoha7LgBzx52EWQk5oJZNgndGaDQdXNBkoB6ajtsSWVrO8YpKWFfAguSMnt7Q1TWEzDSMIZ1pKYRslxJ2q2GlKK+uxDyRwQbGzWD7wCxC7woV0/eBVnltwjSRDT0/C4IDqrOSnrqdWUruvdX1Q6UOdb49RUp1z+Q/8MIpwbnT50pYdDUMJVwi2f6MnRq3rTbXvfvqs26sDlXu6lfBegHrVC6O94gg640Oot5A8dX9vnaUFsH3nr6XeOX31/92EHq6x+WMqRbkN0NfH2rGROo47bh4MLuYXCo53YZsU6A0q/lj4TXf9A2qAZ2GsQ6jpUgV5W+1NoJJ5nFnoxrtUGwXR3YiuQFHpTmtM4+43eIf1yt4hzzQ8laZ4g7Uv4C4kujv+cHgHrfXhtixb6MMSbLHyTgoFnegAvOKcUq1UfWD9mbRhG29yynphOy/459MiMOU0GY/odDqm2+ls+sC2s2QyypPJmI2T6WhG4u0JhX1Sua6FNuPBrakuucI7a78gg4WhVTx2buhhIc6l7o1cqFxvmAFQqzrDTTgYLIKPks+5wAFtwDmh4r7JJSNSsz3w7JYoi53Oj87QrMuSkUp8aBc8GUnjJyMjV3L9C1BLAwQUAAAICAAAACHsIacWjW0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNVRUEovSizIKAaKGII4pZkpIHa0UqpFSqKRsWGihYVxYpKFpYVucpKlkblhmpG5cbKxkYWhpVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAACHsFDLwl0sCAADxBAAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAACHsIacWjW0AAAB4AAAACQAkAAAAAAAAAAAAAACYAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAFADAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -545,6 +557,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1626875242135857808, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626875242135857808, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1626875242135857812, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
