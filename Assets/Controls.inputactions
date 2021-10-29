@@ -90,6 +90,33 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "UI",
+            "id": "c7e75494-c2ae-4f88-bb2b-ba5deb5df8ec",
+            "actions": [
+                {
+                    "name": "Restart",
+                    "type": "Button",
+                    "id": "d5770710-75db-47f1-a625-f059ed9ef078",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7be31713-e571-4143-bfd9-45777f4ce386",
+                    "path": "<Keyboard>/r",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Restart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
