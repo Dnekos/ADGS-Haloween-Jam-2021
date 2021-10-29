@@ -474,6 +474,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost_temp
       objectReference: {fileID: 0}
+    - target: {fileID: 1626875242135857809, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
+      propertyPath: DetectRadius
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1626875242135857835, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
       propertyPath: m_RootOrder
       value: 2
