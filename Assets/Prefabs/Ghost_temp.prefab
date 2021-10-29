@@ -202,6 +202,7 @@ MonoBehaviour:
   WanderRadius: 5
   DetectRadius: 3
   Chaser: {fileID: 3276384963631454143}
+  StartPos: {x: -Infinity, y: -Infinity, z: -Infinity}
 --- !u!114 &3276384963631454143
 MonoBehaviour:
   m_ObjectHideFlags: 0
