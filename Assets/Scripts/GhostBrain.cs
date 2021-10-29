@@ -15,18 +15,18 @@ public class GhostBrain : MonoBehaviour
     public GhostState ActiveState = GhostState.Wander;
 
     [SerializeField,Tooltip("How far the ghost can move from its start point when wandering")] 
-    float WanderRadius = 20;
+    public float WanderRadius = 20;
     [SerializeField, Tooltip("The range in which the ghost detects the player")]
     float DetectRadius = 3;
     [Header("Components"), SerializeField]
     AIDestinationSetter Chaser;
     IAstarAI ai;
-    Vector3 StartPos;
+    [HideInInspector] public Vector3 StartPos;
     void Start()
     {
         ai = GetComponent<IAstarAI>();
-        StartPos = transform.position;
-
+		StartPos = transform.position;
+		Debug.Log(StartPos + " " + (StartPos == Vector3.negativeInfinity));
         GetComponent<CircleCollider2D>().radius = DetectRadius;
         transform.GetChild(0).localScale = new Vector3(DetectRadius * 2, DetectRadius * 2, 1);
     }
