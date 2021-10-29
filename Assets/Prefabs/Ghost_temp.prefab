@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  radius: 0.5
+  radius: 1
   height: 2
   repathRate: 0.5
   canSearch: 1
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActiveState: 0
   WanderRadius: 5
-  DetectRadius: 7
+  DetectRadius: 3
   Chaser: {fileID: 3276384963631454143}
 --- !u!114 &3276384963631454143
 MonoBehaviour:

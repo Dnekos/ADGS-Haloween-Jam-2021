@@ -15,8 +15,13 @@ public class Candle : MonoBehaviour
 		AstarPath.active.UpdateGraphs(LitArea.bounds);
     }
 
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		OnCollisionStay2D(collision);
+	}
 	private void OnCollisionStay2D(Collision2D collision)
 	{
+		Debug.Log("collide");
 		if (collision.transform.tag == "Player")// && Player.getComponent<Movement>().blowingout)
 		{
 			gameObject.layer = 0; // place the object out of the GhostWall layer
