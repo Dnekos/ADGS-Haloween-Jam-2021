@@ -217,6 +217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost_temp (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1626875242135857808, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1626875242135857835, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -330,6 +334,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8934795904381120855, guid: 058a848f24cacc6498d8195f86d20600, type: 3}
+      propertyPath: deadLolUI
+      value: 
+      objectReference: {fileID: 2439037412380739702, guid: 5daa57d28ecd9f84f8ffaa69d6d5284c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 058a848f24cacc6498d8195f86d20600, type: 3}
 --- !u!1001 &1532567736
@@ -342,6 +350,10 @@ PrefabInstance:
     - target: {fileID: 1626875242135857808, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
       propertyPath: m_Name
       value: Ghost_temp (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626875242135857808, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 1626875242135857835, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
       propertyPath: m_RootOrder
@@ -399,6 +411,10 @@ PrefabInstance:
     - target: {fileID: 1626875242135857808, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
       propertyPath: m_Name
       value: Ghost_temp (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626875242135857808, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 1626875242135857835, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
       propertyPath: m_RootOrder
@@ -546,6 +562,10 @@ PrefabInstance:
     - target: {fileID: 1626875242135857808, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626875242135857808, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 1626875242135857812, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
       propertyPath: m_Radius
