@@ -5,8 +5,10 @@ using Pathfinding;
 
 public class Candle : MonoBehaviour
 {
-
+	[Tooltip("Has the player interacted with the light?")]
+	public bool isLit = true;
 	CircleCollider2D LitArea;
+	
 	[Header("Ghost Spawning")]
 	[SerializeField, Tooltip("Amount of ghosts that spawn when candle goes out")]
 	int GhostSpawns = 2;
@@ -30,7 +32,7 @@ public class Candle : MonoBehaviour
 	private void OnCollisionStay2D(Collision2D collision)
 	{
 		Debug.Log("collide");
-		if (collision.transform.tag == "Player")// && Player.getComponent<Movement>().blowingout)
+		if (collision.transform.tag == "Player" && isLit)// && Player.getComponent<Movement>().blowingout)
 		{
 			SnuffCandle();
 		}
@@ -38,6 +40,8 @@ public class Candle : MonoBehaviour
 
 	void SnuffCandle()
 	{
+		isLit = false;
+
 		gameObject.layer = 0; // place the object out of the GhostWall layer
 		// define area of the graph to update, so we dont update the whole level
 		Bounds litbounds = new Bounds(transform.position, Vector3.one * LitArea.radius);
@@ -46,7 +50,7 @@ public class Candle : MonoBehaviour
 
 		for (int i = 0; i < GhostSpawns; i++)
 		{
-			Vector2 spawnpoint = Random.insideUnitCircle.normalized * AstarPath.active.data.gridGraph.depth * 0.5f;
+			Vector2 spawnpoint = (Random.insideUnitCircle.normalized * AstarPath.active.data.gridGraph.depth * 0.5f) + (Vector2)AstarPath.active.data.gridGraph.center;
 			GhostBrain newghost = Instantiate(ghostPrefab, spawnpoint, transform.rotation).GetComponent<GhostBrain>();
 			newghost.StartPos = transform.position;
 			newghost.WanderRadius = WanderRadius;
