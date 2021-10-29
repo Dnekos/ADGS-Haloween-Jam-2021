@@ -21,13 +21,12 @@ public class GhostBrain : MonoBehaviour
     [Header("Components"), SerializeField]
     AIDestinationSetter Chaser;
     IAstarAI ai;
-    [HideInInspector] public Vector3 StartPos = Vector3.negativeInfinity;
+    [HideInInspector] public Vector3 StartPos;
     void Start()
     {
         ai = GetComponent<IAstarAI>();
-        if (StartPos == Vector3.negativeInfinity)
-			StartPos = transform.position;
-
+		StartPos = transform.position;
+		Debug.Log(StartPos + " " + (StartPos == Vector3.negativeInfinity));
         GetComponent<CircleCollider2D>().radius = DetectRadius;
         transform.GetChild(0).localScale = new Vector3(DetectRadius * 2, DetectRadius * 2, 1);
     }
