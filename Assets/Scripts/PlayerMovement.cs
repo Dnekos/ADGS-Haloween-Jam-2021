@@ -15,8 +15,12 @@ public class PlayerMovement : MonoBehaviour
 
 	[SerializeField] private float maxBoostSpeed = 10f;
 
+	[SerializeField] private float minSpeed = .05f;
+
 	private Vector2 inputDir;
 	private Rigidbody2D rigidBody;
+
+	private bool isBoosting = false;
 
 	// Start is called before the first frame update
 	void Start()
@@ -29,8 +33,16 @@ public class PlayerMovement : MonoBehaviour
 		inputDir = context.ReadValue<Vector2>();
 	}
 
+	public void OnBoost(InputAction.CallbackContext context)
+	{
+		if(context.started)
+			isBoosting = true;
+		
+	}
+
 	private void FixedUpdate()
 	{
+		
         if (inputDir == Vector2.zero && stopImmediately)
         {
 	       rigidBody.velocity = Vector2.zero;
@@ -43,6 +55,11 @@ public class PlayerMovement : MonoBehaviour
 
         else if (inputDir != Vector2.zero && rigidBody.velocity.magnitude > maxSpeed)
 	        rigidBody.velocity = inputDir*maxSpeed;
+
+        if (rigidBody.velocity.magnitude < minSpeed)
+        {
+	        rigidBody.velocity=Vector2.zero;
+        }
 	}
 
 	// Update is called once per frame
