@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 	void Start()
 	{
 		 rigidBody = GetComponent<Rigidbody2D>();
+		 
 	}
 
 	public void OnMove(InputAction.CallbackContext context)

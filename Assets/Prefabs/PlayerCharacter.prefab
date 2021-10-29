@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4359566554393794536}
   - component: {fileID: 6629211278794499419}
   - component: {fileID: 1542190209312211329}
-  - component: {fileID: 8934795904381120855}
+  - component: {fileID: 2392911365265117415}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -130,6 +130,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9d32e5ba-6a70-4c45-8592-e954f16608f2
     m_ActionName: Gameplay/Boost[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d5770710-75db-47f1-a625-f059ed9ef078
+    m_ActionName: UI/Restart[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -153,7 +157,7 @@ MonoBehaviour:
   enableBoost: 1
   maxBoostSpeed: 10
   minSpeed: 0.05
---- !u!114 &8934795904381120855
+--- !u!114 &2392911365265117415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,9 +166,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5885507937849602282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8b8f47fbe3d058488762b2bb7358ebe, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d3c8f75b89193044b1430cdcba706cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  youDiedUI: {fileID: 1318857285785759337, guid: dfa5c803c0e9e2b4b8287e5ebe1ac7aa, type: 3}
 --- !u!1 &9024463444528376255
 GameObject:
   m_ObjectHideFlags: 0
