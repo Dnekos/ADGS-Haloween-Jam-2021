@@ -23,11 +23,11 @@
                 },
                 {
                     "name": "Attack",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "65d875fa-fe75-44f5-8dab-3aa192fb529c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold"
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -101,7 +101,7 @@
                     "name": "",
                     "id": "ba521b96-b0a9-4ce1-8ae8-9a5de1b732cf",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "Tap",
+                    "interactions": "MultiTap(tapCount=1)",
                     "processors": "",
                     "groups": "",
                     "action": "Attack",

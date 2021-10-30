@@ -186,7 +186,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   youDiedUI: {fileID: 1318857285785759337, guid: dfa5c803c0e9e2b4b8287e5ebe1ac7aa, type: 3}
-  fireBall: {fileID: 3348243576541424170, guid: 4efe0c3967569a040a9db1d248db22b8, type: 3}
+  fireBall: {fileID: 3848122457444913242, guid: 4efe0c3967569a040a9db1d248db22b8, type: 3}
+  projectileSpeed: 0.05
+  reticle: {fileID: 0}
 --- !u!1 &9024463444528376255
 GameObject:
   m_ObjectHideFlags: 0
