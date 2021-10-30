@@ -139,7 +139,19 @@ MonoBehaviour:
     m_ActionId: f3ced845-f829-4146-ac3c-f46bb0b77da8
     m_ActionName: Gameplay/Pause[/Keyboard/enter,/Keyboard/escape]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2392911365265117415}
+        m_TargetAssemblyTypeName: PlayerCombat, Assembly-CSharp
+        m_MethodName: OnFire
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: ff393982-190a-4675-83f1-062e0f9d94f9
     m_ActionName: Gameplay/Attack[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
@@ -160,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
-  maxSpeed: 4
+  maxSpeed: 5
   acceleration: 40
   stopImmediately: 0
   enableBoost: 1
@@ -179,9 +191,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   youDiedUI: {fileID: 1318857285785759337, guid: dfa5c803c0e9e2b4b8287e5ebe1ac7aa, type: 3}
-  fireBall: {fileID: 3667517568688579213, guid: 38797fc0377199647bc8b6ac8250fc14, type: 3}
+  fireBall: {fileID: 2147636734216770502, guid: be6745b95da3eaa44bf5db4f87266c4a, type: 3}
   projectileSpeed: 0.05
   reticle: {fileID: 0}
+  fireOffset: 1
 --- !u!1 &9024463444528376255
 GameObject:
   m_ObjectHideFlags: 0

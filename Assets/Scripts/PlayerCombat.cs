@@ -13,26 +13,36 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private GameObject fireBall;
     [SerializeField] private float projectileSpeed = .1f;
     [SerializeField] private GameObject reticle;
+    [SerializeField] private float fireOffset=.7f;
+    [SerializeField] private float cooldown = .5f;
+
+    private float timeElapsedSinceFiring;
 
     private GameObject projectile;
     private Vector2 launchDir;
 
-    public void OnFire(InputAction.CallbackContext context)
+    private void Start()
     {
-        if(context.ReadValue<float>() != 1f)
-            return;
-        projectile = Instantiate(fireBall, transform.position, Quaternion.identity);
-        Camera cam = Camera.main;
-        Vector2 mousePosWorld = cam.ScreenToWorldPoint(reticle.transform.position);
-        launchDir = (mousePosWorld - (Vector2)projectile.transform.position);
+        
+        timeElapsedSinceFiring = cooldown;
     }
 
-    private void FixedUpdate()
+    public void OnFire(InputAction.CallbackContext context)
     {
-        if (projectile != null)
-        {
-            projectile.transform.position += (Vector3)(launchDir * projectileSpeed);
-        }
+        if(   (context.ReadValue<float>()!=1f || timeElapsedSinceFiring > 0f))
+            return;
+        Camera cam = Camera.main;
+        Vector2 mousePosWorld = cam.ScreenToWorldPoint(reticle.transform.position);
+        Vector2 vecBtwnMouseAndPlayer = (mousePosWorld - (Vector2)transform.position);
+        float angle = Mathf.Atan2(vecBtwnMouseAndPlayer.y, vecBtwnMouseAndPlayer.x);
+        projectile = Instantiate(fireBall, transform.position+(fireOffset*new Vector3(Mathf.Cos(angle),Mathf.Sin(angle)))
+            , Quaternion.Euler(0,0,angle * Mathf.Rad2Deg*.5f));
+        timeElapsedSinceFiring = cooldown;
+    }
+
+    private void Update()
+    {
+        timeElapsedSinceFiring -= Time.deltaTime;
     }
 
     private void OnCollisionEnter2D(Collision2D other)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,20 +10,35 @@ public class Fireball : MonoBehaviour
 	float ExplosionRadius;
 	[SerializeField]
 	float PushForce;
-    
 
-    // Update is called once per frame
+	private Rigidbody2D rb;
+
+	private void Start()
+	{
+		rb = GetComponent<Rigidbody2D>();
+		rb.AddRelativeForce(transform.right * ImpulseSpeed,ForceMode2D.Impulse);
+	}
+
+	// Update is called once per frame
     void Update()
     {
         
     }
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
+		if (collision.gameObject.CompareTag("Player"))
+			return;
 		Debug.Log(Physics2D.OverlapCircleAll(transform.position, ExplosionRadius).Length);
 		foreach (Collider2D col in Physics2D.OverlapCircleAll(transform.position, ExplosionRadius))
 		{
 			if (col.isTrigger || col.tag == "Player")
 				continue;
+
+			if (col.GetComponent<Fireball>() != null)
+			{
+				Destroy(col.gameObject);
+				continue;
+			}
 
 			Vector2 force = (col.transform.position - transform.position) * PushForce;
 
