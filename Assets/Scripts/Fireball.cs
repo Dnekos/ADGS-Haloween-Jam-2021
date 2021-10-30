@@ -27,7 +27,7 @@ public class Fireball : MonoBehaviour
 		Debug.Log(Physics2D.OverlapCircleAll(transform.position, ExplosionRadius).Length);
 		foreach (Collider2D col in Physics2D.OverlapCircleAll(transform.position, ExplosionRadius))
 		{
-			if (col.isTrigger)
+			if (col.isTrigger || col.tag == "Player")
 				continue;
 
 			Vector2 force = (col.transform.position - transform.position) * PushForce;
