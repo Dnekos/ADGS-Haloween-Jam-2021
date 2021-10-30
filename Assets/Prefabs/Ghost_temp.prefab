@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1626875242135857814}
   - component: {fileID: 1626875242135857809}
   - component: {fileID: 3276384963631454143}
+  - component: {fileID: 3766858739028712999}
   m_Layer: 0
   m_Name: Ghost_temp
   m_TagString: Enemy
@@ -168,7 +169,7 @@ MonoBehaviour:
   repathRate: 0.5
   canSearch: 1
   canMove: 1
-  maxSpeed: 7
+  maxSpeed: 4
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -199,10 +200,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveState: 0
-  WanderRadius: 8
+  minPushSpeed: 0.15
+  MaxHealth: 5
+  WanderRadius: 5
   DetectRadius: 3
   Chaser: {fileID: 3276384963631454143}
-  StartPos: {x: -Infinity, y: -Infinity, z: -Infinity}
+  WanderPoint: {x: 0, y: 0, z: 0}
+  StayAtSpawn: 0
 --- !u!114 &3276384963631454143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +221,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+--- !u!50 &3766858739028712999
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626875242135857808}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 2.5
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &7478137205349692558
 GameObject:
   m_ObjectHideFlags: 0
