@@ -50,10 +50,8 @@ public class Candle : MonoBehaviour
 
 		for (int i = 0; i < GhostSpawns; i++)
 		{
-			Vector2 spawnpoint = (Random.insideUnitCircle.normalized * AstarPath.active.data.gridGraph.depth * 0.5f) + (Vector2)AstarPath.active.data.gridGraph.center;
-			GhostBrain newghost = Instantiate(ghostPrefab, spawnpoint, transform.rotation).GetComponent<GhostBrain>();
-			newghost.StartPos = transform.position;
-			newghost.WanderRadius = WanderRadius;
+			GhostBrain newghost = Instantiate(ghostPrefab).GetComponent<GhostBrain>();
+			newghost.SpawnConstructor(transform.position, WanderRadius);
 		}
 	}
 }
