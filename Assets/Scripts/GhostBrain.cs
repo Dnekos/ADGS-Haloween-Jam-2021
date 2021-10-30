@@ -14,29 +14,49 @@ public class GhostBrain : MonoBehaviour
     [Tooltip("What state of movement the Ghost is in.\nWander: moves within WanderRadius of initial spot\nChase: tracks detected player")]
     public GhostState ActiveState = GhostState.Wander;
 
+	[Header("Fireball Interaction"), SerializeField, Tooltip("How slow until the Ghost regains control after being pushed")]
+	float minPushSpeed = 0.05f;
+	[SerializeField, Tooltip("How many hits the Ghost can take before being defeated")]
+	int Health;
+	bool beingPushed = false;
+
     [SerializeField,Tooltip("How far the ghost can move from its start point when wandering")] 
     public float WanderRadius = 20;
-    [SerializeField, Tooltip("The range in which the ghost detects the player")]
+    [SerializeField, Tooltip("The range in which the ghost detects the player, overrides the Colllider's radius")]
     float DetectRadius = 3;
+
     [Header("Components"), SerializeField]
     AIDestinationSetter Chaser;
     IAstarAI ai;
-    [HideInInspector] public Vector3 StartPos;
+	Rigidbody2D rb;
+	[HideInInspector] public Vector3 WanderPoint;
+	
+
     void Start()
     {
         ai = GetComponent<IAstarAI>();
-		StartPos = transform.position;
-		Debug.Log(StartPos + " " + (StartPos == Vector3.negativeInfinity));
+		rb = GetComponent<Rigidbody2D>();
+
+		WanderPoint = transform.position;
+		
+		// make sure the visualizer size matches radius
         GetComponent<CircleCollider2D>().radius = DetectRadius;
-        transform.GetChild(0).localScale = new Vector3(DetectRadius * 2, DetectRadius * 2, 1);
+        transform.GetChild(0).localScale = new Vector3(DetectRadius * 2, DetectRadius * 2, 1); 
     }
     void Update()
     {
-        // Update the destination of the AI if
-        // the AI is not already calculating a path and
-        // the ai has reached the end of the path or it has no path at all
-        // the ai is in a Wandering state
-        if (ActiveState == GhostState.Wander && !ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath))
+		if (beingPushed && rb.velocity.magnitude < minPushSpeed)
+		{
+			ai.canMove = true;
+
+		}
+
+
+		// Update the destination of the AI if
+		// the AI is not already calculating a path and
+		// the ai has reached the end of the path or it has no path at all
+		// the ai is in a Wandering state
+		if (ActiveState == GhostState.Wander && !ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath))
         {
             ai.destination = PickRandomPoint();
             ai.SearchPath();
@@ -47,7 +67,7 @@ public class GhostBrain : MonoBehaviour
     {
         var point = Random.insideUnitSphere * WanderRadius;
         point.z = transform.position.z; // flatten point for 2D
-        point += StartPos; // localize it within their area
+        point += WanderPoint; // localize it within their area
         return point;
     }
 
@@ -61,4 +81,27 @@ public class GhostBrain : MonoBehaviour
             Chaser.target = collision.transform; // set player as our target to chase
         }
     }
+
+	/// <summary>
+	/// disable/enable enemy movement
+	/// </summary>
+	/// <param name="pause">whether the game is paused or not</param>
+	public void OnPause(bool pause)
+	{
+		ai.canMove = pause;
+	}
+
+	public void SpawnConstructor(Vector3 NewWanderPoint, float radius)
+	{
+		Vector2 spawnpoint = (Random.insideUnitCircle.normalized * AstarPath.active.data.gridGraph.depth * 0.5f) + (Vector2)AstarPath.active.data.gridGraph.center;
+		transform.position = spawnpoint;
+		WanderPoint = NewWanderPoint;
+		WanderRadius = radius;
+	}
+
+	public void PushGhost()
+	{
+		ai.canMove = false;
+
+	}
 }
