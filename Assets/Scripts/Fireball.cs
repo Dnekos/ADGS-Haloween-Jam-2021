@@ -5,17 +5,11 @@ using UnityEngine;
 public class Fireball : MonoBehaviour
 {
 	public float ImpulseSpeed;
-	Rigidbody2D rd;
 	[SerializeField]
 	float ExplosionRadius;
 	[SerializeField]
 	float PushForce;
-    // Start is called before the first frame update
-    void Start()
-    {
-		rd = GetComponent<Rigidbody2D>();
-		rd.AddRelativeForce(Vector2.right * ImpulseSpeed, ForceMode2D.Impulse);
-    }
+    
 
     // Update is called once per frame
     void Update()

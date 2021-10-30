@@ -21,7 +21,6 @@ public class PlayerCombat : MonoBehaviour
     {
         if(context.ReadValue<float>() != 1f)
             return;
-        Destroy(projectile);
         projectile = Instantiate(fireBall, transform.position, Quaternion.identity);
         Camera cam = Camera.main;
         Vector2 mousePosWorld = cam.ScreenToWorldPoint(reticle.transform.position);

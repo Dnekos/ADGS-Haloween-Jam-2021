@@ -15,6 +15,8 @@ public class FollowMouse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Mouse.current.position.ReadValue();
+        Vector2 mousePos = Mouse.current.position.ReadValue();
+        Debug.Log("Mouse: "+mousePos);
+        transform.position = mousePos;
     }
 }
