@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,31 +6,39 @@ using UnityEngine;
 public class Fireball : MonoBehaviour
 {
 	public float ImpulseSpeed;
-	Rigidbody2D rd;
 	[SerializeField]
 	float ExplosionRadius;
 	[SerializeField]
 	float PushForce;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-		rd = GetComponent<Rigidbody2D>();
-		rd.AddRelativeForce(Vector2.right * ImpulseSpeed, ForceMode2D.Impulse);
-    }
+	private Rigidbody2D rb;
 
-    // Update is called once per frame
+	private void Start()
+	{
+		rb = GetComponent<Rigidbody2D>();
+		rb.AddRelativeForce(transform.right * ImpulseSpeed,ForceMode2D.Impulse);
+	}
+
+	// Update is called once per frame
     void Update()
     {
         
     }
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
+		if (collision.gameObject.CompareTag("Player"))
+			return;
 		Debug.Log(Physics2D.OverlapCircleAll(transform.position, ExplosionRadius).Length);
 		foreach (Collider2D col in Physics2D.OverlapCircleAll(transform.position, ExplosionRadius))
 		{
 			if (col.isTrigger || col.tag == "Player")
 				continue;
+
+			if (col.GetComponent<Fireball>() != null)
+			{
+				Destroy(col.gameObject);
+				continue;
+			}
 
 			Vector2 force = (col.transform.position - transform.position) * PushForce;
 
