@@ -21,6 +21,9 @@ public class Fireball : MonoBehaviour
 		Debug.Log(Physics2D.OverlapCircleAll(transform.position, ExplosionRadius).Length);
 		foreach (Collider2D col in Physics2D.OverlapCircleAll(transform.position, ExplosionRadius))
 		{
+			if (col.isTrigger || col.tag == "Player")
+				continue;
+
 			Vector2 force = (col.transform.position - transform.position) * PushForce;
 
 			Rigidbody2D rb = col.GetComponent<Rigidbody2D>();
@@ -33,6 +36,7 @@ public class Fireball : MonoBehaviour
 			GhostBrain gb = col.GetComponent<GhostBrain>();
 			if (gb != null)
 			{
+				Debug.Log(gb.gameObject.GetInstanceID());
 				gb.PushGhost();
 			}
 		}

@@ -17,6 +17,7 @@ public class GhostBrain : MonoBehaviour
 	[Header("Fireball Interaction"), SerializeField, Tooltip("How slow until the Ghost regains control after being pushed")]
 	float minPushSpeed = 0.05f;
 	[SerializeField, Tooltip("How many hits the Ghost can take before being defeated")]
+	int MaxHealth = 5;
 	int Health;
 	bool beingPushed = false;
 
@@ -37,26 +38,33 @@ public class GhostBrain : MonoBehaviour
         ai = GetComponent<IAstarAI>();
 		rb = GetComponent<Rigidbody2D>();
 
+		// DEBUG
 		WanderPoint = transform.position;
 		
+		// default values
+		Health = MaxHealth;
+		ActiveState = GhostState.Wander;
+		beingPushed = false;
+		ai.canMove = true;
+
 		// make sure the visualizer size matches radius
-        GetComponent<CircleCollider2D>().radius = DetectRadius;
+		GetComponent<CircleCollider2D>().radius = DetectRadius;
         transform.GetChild(0).localScale = new Vector3(DetectRadius * 2, DetectRadius * 2, 1); 
     }
     void Update()
     {
-		if (beingPushed && rb.velocity.magnitude < minPushSpeed)
+		// When the push slows down enough the Ghost should resume normal movement
+		if (beingPushed && rb.velocity.magnitude <= minPushSpeed)
 		{
 			ai.canMove = true;
-
+			beingPushed = false;
 		}
-
 
 		// Update the destination of the AI if
 		// the AI is not already calculating a path and
 		// the ai has reached the end of the path or it has no path at all
 		// the ai is in a Wandering state
-		if (ActiveState == GhostState.Wander && !ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath))
+			if (ActiveState == GhostState.Wander && !ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath))
         {
             ai.destination = PickRandomPoint();
             ai.SearchPath();
@@ -97,11 +105,20 @@ public class GhostBrain : MonoBehaviour
 		transform.position = spawnpoint;
 		WanderPoint = NewWanderPoint;
 		WanderRadius = radius;
+		//ai.canMove = true;
+
 	}
 
 	public void PushGhost()
 	{
+		beingPushed = true;
 		ai.canMove = false;
-
+		if (--Health <= 0)
+		{
+			GhostBrain newghost = Instantiate(gameObject).GetComponent<GhostBrain>();
+			newghost.SpawnConstructor(transform.position, WanderRadius);
+			
+			Destroy(gameObject);
+		}
 	}
 }
