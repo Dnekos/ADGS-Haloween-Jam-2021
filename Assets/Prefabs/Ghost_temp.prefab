@@ -168,7 +168,7 @@ MonoBehaviour:
   repathRate: 0.5
   canSearch: 1
   canMove: 1
-  maxSpeed: 4
+  maxSpeed: 7
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveState: 0
-  WanderRadius: 5
+  WanderRadius: 8
   DetectRadius: 3
   Chaser: {fileID: 3276384963631454143}
   StartPos: {x: -Infinity, y: -Infinity, z: -Infinity}
