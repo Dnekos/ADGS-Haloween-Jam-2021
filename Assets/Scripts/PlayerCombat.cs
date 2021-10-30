@@ -11,7 +11,6 @@ public class PlayerCombat : MonoBehaviour
 {
     [SerializeField] private GameObject youDiedUI;
     [SerializeField] private GameObject fireBall;
-    [SerializeField] private float projectileSpeed = .1f;
     [SerializeField] private GameObject reticle;
     [SerializeField] private float fireOffset=.7f;
     [SerializeField] private float cooldown = .5f;
