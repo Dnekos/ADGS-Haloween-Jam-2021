@@ -31,15 +31,18 @@ public class GhostBrain : MonoBehaviour
     IAstarAI ai;
 	Rigidbody2D rb;
 	[HideInInspector] public Vector3 WanderPoint;
-	
+
+
+	[Header("DEBUG"), SerializeField, Tooltip("Ghost only stays around where it spawned, not near candle")]
+	bool StayAtSpawn = false;
 
     void Start()
     {
         ai = GetComponent<IAstarAI>();
 		rb = GetComponent<Rigidbody2D>();
 
-		// DEBUG
-		WanderPoint = transform.position;
+		if (StayAtSpawn)
+			WanderPoint = transform.position;
 		
 		// default values
 		Health = MaxHealth;

@@ -8,7 +8,10 @@ public class Candle : MonoBehaviour
 	[Tooltip("Has the player interacted with the light?")]
 	public bool isLit = true;
 	CircleCollider2D LitArea;
-	
+		
+	[Header("Master Candle"), SerializeField]
+	bool isMasterCandle;
+
 	[Header("Ghost Spawning")]
 	[SerializeField, Tooltip("Amount of ghosts that spawn when candle goes out")]
 	int GhostSpawns = 2;
@@ -17,6 +20,8 @@ public class Candle : MonoBehaviour
 	[SerializeField]
 	GameObject ghostPrefab;
 
+	//[SerializeField, Tooltip("How many ghosts spawn in the last wave")]
+	//int LastWaveNum = 5;
 
 	// Start is called before the first frame update
 	void Start()
@@ -40,6 +45,13 @@ public class Candle : MonoBehaviour
 
 	void SnuffCandle()
 	{
+		if (isMasterCandle)
+		{
+			foreach (Candle candle in FindObjectsOfType<Candle>())
+				if (candle.isLit == true && candle != this)
+					return;
+		}
+
 		isLit = false;
 
 		gameObject.layer = 0; // place the object out of the GhostWall layer

@@ -200,12 +200,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveState: 0
-  minPushSpeed: 0.05
-  MaxHealth: 1
+  minPushSpeed: 0.15
+  MaxHealth: 5
   WanderRadius: 5
   DetectRadius: 3
   Chaser: {fileID: 3276384963631454143}
   WanderPoint: {x: 0, y: 0, z: 0}
+  StayAtSpawn: 0
 --- !u!114 &3276384963631454143
 MonoBehaviour:
   m_ObjectHideFlags: 0
