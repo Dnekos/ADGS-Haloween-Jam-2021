@@ -10,6 +10,7 @@ public class Fireball : MonoBehaviour
 	float ExplosionRadius;
 	[SerializeField]
 	float PushForce;
+
     // Start is called before the first frame update
     void Start()
     {
