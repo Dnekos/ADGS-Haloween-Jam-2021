@@ -151,7 +151,6 @@ public class GhostBrain : MonoBehaviour
 		WanderPoint = NewWanderPoint;
 		WanderRadius = radius;
 		//ai.canMove = true;
-
 	}
 
 	public void PushGhost()
