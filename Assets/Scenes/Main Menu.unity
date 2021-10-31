@@ -633,19 +633,19 @@ MonoBehaviour:
   - name: PlayerDie
     clip: {fileID: 8300000, guid: cbba43a4ea243ed44858a3874cb2591f, type: 3}
     loop: 0
-    vol: 0.4
+    vol: 0.28
   - name: EnemyDie
     clip: {fileID: 8300000, guid: 087f38ef93c24354fac20cbc0795e2ba, type: 3}
     loop: 0
-    vol: 0.838
+    vol: 0.2
   - name: EnemyFloat
     clip: {fileID: 8300000, guid: ddeb26780c4dc084c90b4f7de4a66d51, type: 3}
     loop: 1
-    vol: 0.03
+    vol: 0.032
   - name: LevelMusic
     clip: {fileID: 8300000, guid: a0340961704cc0346a1f4c665d816d07, type: 3}
     loop: 1
-    vol: 0.25
+    vol: 0.3
 --- !u!4 &468990470
 Transform:
   m_ObjectHideFlags: 0

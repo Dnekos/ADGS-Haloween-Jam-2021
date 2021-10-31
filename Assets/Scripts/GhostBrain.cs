@@ -139,10 +139,12 @@ public class GhostBrain : MonoBehaviour
 	{
 		Vector2 spawnpoint;
 		Vector2 doorpos = FindObjectOfType<ExitDoor>().transform.position;
+		int redundancy = 0;
 		do
 		{
 			spawnpoint = (Random.insideUnitCircle.normalized * AstarPath.active.data.gridGraph.depth * 0.5f) + (Vector2)AstarPath.active.data.gridGraph.center;
-		} while (!chase || Vector2.Distance(spawnpoint, doorpos) < AstarPath.active.data.gridGraph.depth * 0.8f);
+			redundancy++;
+		} while (chase || Vector2.Distance(spawnpoint, doorpos) < AstarPath.active.data.gridGraph.depth * 0.8f || redundancy < 100);
 
 		if (chase)
 			StartChase(FindObjectOfType<PlayerCombat>().transform);
