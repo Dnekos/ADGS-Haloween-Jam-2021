@@ -9,7 +9,7 @@ public class VictoryUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timerText.text = PlayTime.instance.minutes + ":" + PlayTime.instance.seconds;
+        timerText.text = PlayTime.instance.minutes + ":" + PlayTime.instance.seconds.ToString("#.00");
         Cursor.visible = true;
     }
 
