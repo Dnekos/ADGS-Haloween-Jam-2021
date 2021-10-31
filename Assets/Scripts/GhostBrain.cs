@@ -33,6 +33,8 @@ public class GhostBrain : MonoBehaviour
 	Animator anim;
 	[HideInInspector] public Vector3 WanderPoint;
 
+	[SerializeField]
+	GameObject DeathParticle;
 
 	[Header("DEBUG"), SerializeField, Tooltip("Ghost only stays around where it spawned, not near candle")]
 	bool StayAtSpawn = false;
@@ -109,12 +111,14 @@ public class GhostBrain : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player") // if we find the player
-        {
-            ActiveState = GhostState.Chase; // turn off wander
-            Chaser.enabled = true;
-            Chaser.target = collision.transform; // set player as our target to chase
-        }
+			StartChase(collision.transform);
     }
+	void StartChase(Transform player)
+	{
+		ActiveState = GhostState.Chase; // turn off wander
+		Chaser.enabled = true;
+		Chaser.target = player.transform; // set player as our target to chase
+	}
 
 	/// <summary>
 	/// disable/enable enemy movement
@@ -133,12 +137,25 @@ public class GhostBrain : MonoBehaviour
 	/// <param name="chase">Wether this ghost is part of the end chase, if true will try to place the ghost away from the exit</param>
 	public void SpawnConstructor(Vector3 NewWanderPoint, float radius, bool chase = false)
 	{
-		Vector2 spawnpoint = (Random.insideUnitCircle.normalized * AstarPath.active.data.gridGraph.depth * 0.5f) + (Vector2)AstarPath.active.data.gridGraph.center;
+		Vector2 spawnpoint;
+		Vector2 doorpos = FindObjectOfType<ExitDoor>().transform.position;
+		if (chase)
+			spawnpoint = (Vector2.up * AstarPath.active.data.gridGraph.depth * 0.5f) + (Vector2)AstarPath.active.data.gridGraph.center + Vector2.right * Random.Range(-15,15);
+		else
+			spawnpoint = (Random.insideUnitCircle.normalized * AstarPath.active.data.gridGraph.depth * 0.5f) + (Vector2)AstarPath.active.data.gridGraph.center;
+
+		if (chase)
+		{
+			AudioManager.instance.StopSound("LevelMusic");
+			AudioManager.instance.PlaySound("ChaseMusic");
+
+			StartChase(FindObjectOfType<PlayerCombat>().transform);
+		}
+
 		transform.position = spawnpoint;
 		WanderPoint = NewWanderPoint;
 		WanderRadius = radius;
 		//ai.canMove = true;
-
 	}
 
 	public void PushGhost()
@@ -151,7 +168,7 @@ public class GhostBrain : MonoBehaviour
 			newghost.SpawnConstructor(transform.position, WanderRadius);
 			AudioManager.instance.StopSound("EnemyFloat");
 			AudioManager.instance.PlaySound("EnemyDie");
-
+			Instantiate(DeathParticle, transform.position, transform.rotation);
 			Destroy(gameObject);
 		}
 	}

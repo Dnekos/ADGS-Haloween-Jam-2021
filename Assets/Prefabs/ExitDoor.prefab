@@ -150,3 +150,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d5394d97d82ef1438f203cf35b6fb79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Blackout: {fileID: 1272118974350726408, guid: 1ee3ab889f6978744a4bc023c12697eb, type: 3}
