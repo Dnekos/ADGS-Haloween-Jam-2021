@@ -16,7 +16,8 @@ public class Fireball : MonoBehaviour
 	private void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
-		rb.AddRelativeForce(transform.right * ImpulseSpeed,ForceMode2D.Impulse);
+		rb.AddForce(transform.right * ImpulseSpeed, ForceMode2D.Impulse);
+		//rb.AddRelativeForce(transform.rotation.eulerAngles * ImpulseSpeed ,ForceMode2D.Impulse);
 	}
 
 	// Update is called once per frame
