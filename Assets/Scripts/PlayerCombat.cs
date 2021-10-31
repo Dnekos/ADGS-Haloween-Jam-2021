@@ -18,6 +18,9 @@ public class PlayerCombat : MonoBehaviour
     private float timeElapsedSinceFiring;
 	Vector2 vecBtwnMouseAndPlayer;
 
+	[SerializeField]
+	GameObject DeathParticle;
+
 	private GameObject projectile;
     private Vector2 launchDir;
 	private Animator anim;
@@ -60,6 +63,7 @@ public class PlayerCombat : MonoBehaviour
     {
         Destroy(gameObject);
 		AudioManager.instance.PlaySound("PlayerDie");
+		Instantiate(DeathParticle, transform.position, transform.rotation);
 
 		Instantiate(youDiedUI,FindObjectOfType<Canvas>().transform);
     }

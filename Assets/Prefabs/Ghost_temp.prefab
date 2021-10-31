@@ -156,6 +156,7 @@ MonoBehaviour:
   DetectRadius: 3
   Chaser: {fileID: 3276384963631454143}
   WanderPoint: {x: 0, y: 0, z: 0}
+  DeathParticle: {fileID: 520045911913963866, guid: 1821d62796a4f7b49853c73efc3f1e78, type: 3}
   StayAtSpawn: 0
 --- !u!114 &3276384963631454143
 MonoBehaviour:
