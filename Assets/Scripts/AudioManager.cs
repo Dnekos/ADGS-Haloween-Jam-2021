@@ -77,9 +77,10 @@ public class AudioManager : MonoBehaviour
 				return;
 			}
 		}
+		AudioManager.instance.StopSound("ChaseMusic");
 	}
 
-    public void PlaySound(string _name)
+	public void PlaySound(string _name)
     {
         for (int i = 0; i < sounds.Length; i++)
         {
