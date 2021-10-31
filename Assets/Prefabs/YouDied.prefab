@@ -82,6 +82,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d5770710-75db-47f1-a625-f059ed9ef078
     m_ActionName: UI/Restart[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f3ced845-f829-4146-ac3c-f46bb0b77da8
+    m_ActionName: Gameplay/Pause[/Keyboard/enter,/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ff393982-190a-4675-83f1-062e0f9d94f9
+    m_ActionName: Gameplay/Attack[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI

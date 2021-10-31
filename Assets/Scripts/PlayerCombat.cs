@@ -59,7 +59,7 @@ public class PlayerCombat : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
-        Instantiate(youDiedUI);
+        Instantiate(youDiedUI,FindObjectOfType<Canvas>().transform);
     }
 
 }
