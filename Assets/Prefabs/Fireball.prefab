@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ad8c0c9ca4b665439e4399ffb4f02b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImpulseSpeed: 7
+  ImpulseSpeed: 12
   ExplosionRadius: 2
   PushForce: 20
 --- !u!50 &2147636734216770503
@@ -279,7 +279,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &3941450812998782094
 GameObject:
   m_ObjectHideFlags: 0
