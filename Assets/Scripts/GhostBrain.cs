@@ -52,6 +52,10 @@ public class GhostBrain : MonoBehaviour
 		beingPushed = false;
 		ai.canMove = true;
 
+		// Play sound
+		AudioManager.instance.PlaySound("EnemyFloat");
+
+
 		// make sure the visualizer size matches radius
 		GetComponent<CircleCollider2D>().radius = DetectRadius;
         transform.GetChild(0).localScale = new Vector3(DetectRadius * 2, DetectRadius * 2, 1); 
@@ -145,7 +149,9 @@ public class GhostBrain : MonoBehaviour
 		{
 			GhostBrain newghost = Instantiate(gameObject).GetComponent<GhostBrain>();
 			newghost.SpawnConstructor(transform.position, WanderRadius);
-			
+			AudioManager.instance.StopSound("EnemyFloat");
+			AudioManager.instance.PlaySound("EnemyDie");
+
 			Destroy(gameObject);
 		}
 	}

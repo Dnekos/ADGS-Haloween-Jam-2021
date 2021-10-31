@@ -576,6 +576,74 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &468990468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 468990470}
+  - component: {fileID: 468990469}
+  m_Layer: 0
+  m_Name: Sound Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &468990469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468990468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d97828600711e3846849aea411051945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Blow
+    clip: {fileID: 8300000, guid: 71ae0ba365c00a44a866178b2ae2038c, type: 3}
+    loop: 0
+    vol: 0
+  - name: CloseDoor
+    clip: {fileID: 8300000, guid: c207940847d5a314d85cb5e4b559c3ed, type: 3}
+    loop: 0
+    vol: 0
+  - name: FStart
+    clip: {fileID: 8300000, guid: 9c717bb5b6619a945ad4a349a6910267, type: 3}
+    loop: 0
+    vol: 0
+  - name: FFly
+    clip: {fileID: 8300000, guid: 045b33a3448e0aa4b825fc56c4bbdbc4, type: 3}
+    loop: 0
+    vol: 0
+  - name: FHit
+    clip: {fileID: 8300000, guid: a3d41f176068de443b033fc52eac9440, type: 3}
+    loop: 0
+    vol: 0
+  - name: Click
+    clip: {fileID: 8300000, guid: 43ec5cb638199a841bba5ebe8b32535e, type: 3}
+    loop: 0
+    vol: 0
+--- !u!4 &468990470
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468990468}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.7794197, y: 1.4996083, z: -10.694503}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &599401676
 GameObject:
   m_ObjectHideFlags: 0

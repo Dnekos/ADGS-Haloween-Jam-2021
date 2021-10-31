@@ -50,6 +50,7 @@ public class Candle : MonoBehaviour
 		}
 
 		isLit = false;
+		AudioManager.instance.PlaySound("BlowCandle");
 
 		gameObject.layer = 8; // place the object out of the GhostWall layer
 		// define area of the graph to update, so we dont update the whole level

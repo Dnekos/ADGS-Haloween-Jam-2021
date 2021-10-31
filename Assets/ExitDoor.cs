@@ -12,7 +12,8 @@ public class ExitDoor : MonoBehaviour
 			foreach (Candle candle in FindObjectsOfType<Candle>())
 				if (candle.isLit == true)
 					return; // dont get snuffed if any other candles are lit
-
+			
+			AudioManager.instance.PlaySound("CloseDoor");
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 		}
 	}

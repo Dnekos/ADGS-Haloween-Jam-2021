@@ -48,6 +48,7 @@ public class AudioManager : MonoBehaviour
         else
         {
             instance = this;
+			DontDestroyOnLoad(instance);
         }
       
         for (int i = 0; i < sounds.Length; i++)

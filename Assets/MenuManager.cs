@@ -7,6 +7,7 @@ public class MenuManager : MonoBehaviour
     
 	public void ExitGame()
 	{
+		AudioManager.instance.PlaySound("Click");
 		Debug.Log("exit");
 #if UNITY_EDITOR
 		UnityEditor.EditorApplication.isPlaying = false;
@@ -16,6 +17,7 @@ public class MenuManager : MonoBehaviour
 	}
 	public void BeginGame(int index)
 	{
+		AudioManager.instance.PlaySound("Click");
 		SceneManager.LoadScene(index);
 	}
 }
