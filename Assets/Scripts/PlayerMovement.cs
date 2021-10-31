@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+	public bool isPaused;
+
 	// maxSpeed in units/sec
 	[SerializeField] private float maxSpeed = 2f;
 	
@@ -30,6 +32,18 @@ public class PlayerMovement : MonoBehaviour
 		 
 	}
 
+	public void OnPause(InputAction.CallbackContext context)
+	{
+		if (context.ReadValue<float>() == 1)
+			isPaused = !isPaused;
+		
+		Cursor.visible = isPaused;
+
+		// grab all current ghosts and pause them
+		foreach (GhostBrain ghost in GameObject.FindObjectsOfType<GhostBrain>())
+			ghost.OnPause(isPaused);
+	}
+
 	public void OnMove(InputAction.CallbackContext context)
 	{
 		inputDir = context.ReadValue<Vector2>();
@@ -47,6 +61,9 @@ public class PlayerMovement : MonoBehaviour
 
 	private void FixedUpdate()
 	{
+		if (isPaused) // dont move if paused
+			return;
+
 		float currentMaxSpeed = (isBoosting&&enableBoost) ? (maxBoostSpeed) : (maxSpeed);
 		
         if (inputDir == Vector2.zero && stopImmediately)
