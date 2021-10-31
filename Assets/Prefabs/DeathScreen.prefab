@@ -203,16 +203,32 @@ MonoBehaviour:
     m_ActionName: UI/Restart[/Keyboard/r]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: f3ced845-f829-4146-ac3c-f46bb0b77da8
-    m_ActionName: Gameplay/Pause[/Keyboard/enter,/Keyboard/escape]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: ff393982-190a-4675-83f1-062e0f9d94f9
     m_ActionName: Gameplay/Attack[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ad118198-769a-4bc8-b77f-1e2833e0e6b4
+    m_ActionName: Gameplay/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4352546605674238858}
+        m_TargetAssemblyTypeName: YouDiedUI, Assembly-CSharp
+        m_MethodName: OnRetry
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 582f7f77-2384-408f-adc7-7fcabc368993
+    m_ActionName: UI/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI
-  m_SplitScreenIndex: -1
+  m_SplitScreenIndex: 0
   m_Camera: {fileID: 0}
 --- !u!1 &2245181932554343505
 GameObject:

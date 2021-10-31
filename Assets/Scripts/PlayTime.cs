@@ -11,6 +11,12 @@ public class PlayTime : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		if (instance != null && instance != this)
+		{
+			Destroy(gameObject);
+			instance.ResetTimer();
+			return;
+		}
         instance = this;
         DontDestroyOnLoad(this.gameObject);
     }

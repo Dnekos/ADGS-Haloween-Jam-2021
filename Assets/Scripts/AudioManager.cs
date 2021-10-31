@@ -50,7 +50,7 @@ public class AudioManager : MonoBehaviour
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
-            Debug.LogError("More then one audio manager!");
+            Debug.Log("More then one audio manager!");
             return;
         }
         else
