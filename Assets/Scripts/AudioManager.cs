@@ -26,8 +26,14 @@ public class Sound {
         source.volume = vol;
         source.Play();
     }
+	public void playIfNotPlayerd()
+	{
+		source.volume = vol;
+		if (!source.isPlaying)
+			source.Play();
+	}
 
-    public void pause ()
+	public void pause ()
     {
         source.Pause();
     }
@@ -61,8 +67,15 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
-    }
+		for (int i = 0; i < sounds.Length; i++)
+		{
+			if (sounds[i].name == "LevelMusic")
+			{
+				sounds[i].playIfNotPlayerd();
+				return;
+			}
+		}
+	}
 
     public void PlaySound(string _name)
     {

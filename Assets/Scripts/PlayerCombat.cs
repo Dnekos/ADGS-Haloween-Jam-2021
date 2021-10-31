@@ -36,6 +36,8 @@ public class PlayerCombat : MonoBehaviour
 		projectile = Instantiate(fireBall, transform.position + (fireOffset * new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)))
 			, Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg));// * 0.5f));
 
+		AudioManager.instance.PlaySound("FStart");
+
 		timeElapsedSinceFiring = cooldown;
     }
 
@@ -57,9 +59,10 @@ public class PlayerCombat : MonoBehaviour
             Die();
     }   
     void Die()
-    {
-        Destroy(gameObject);
+    {		
 		AudioManager.instance.PlaySound("PlayerDie");
+
+        Destroy(gameObject);
 
 		Instantiate(youDiedUI,FindObjectOfType<Canvas>().transform);
     }
