@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
-  maxSpeed: 5
+  maxSpeed: 10
   acceleration: 40
   stopImmediately: 0
   enableBoost: 1
@@ -192,9 +192,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   youDiedUI: {fileID: 1318857285785759337, guid: dfa5c803c0e9e2b4b8287e5ebe1ac7aa, type: 3}
   fireBall: {fileID: 2147636734216770502, guid: be6745b95da3eaa44bf5db4f87266c4a, type: 3}
-  projectileSpeed: 0.05
   reticle: {fileID: 0}
   fireOffset: 1
+  cooldown: 0.5
 --- !u!1 &9024463444528376255
 GameObject:
   m_ObjectHideFlags: 0
