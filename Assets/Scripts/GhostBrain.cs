@@ -30,6 +30,7 @@ public class GhostBrain : MonoBehaviour
     AIDestinationSetter Chaser;
     IAstarAI ai;
 	Rigidbody2D rb;
+	Animator anim;
 	[HideInInspector] public Vector3 WanderPoint;
 
 
@@ -40,6 +41,7 @@ public class GhostBrain : MonoBehaviour
     {
         ai = GetComponent<IAstarAI>();
 		rb = GetComponent<Rigidbody2D>();
+		anim = GetComponent<Animator>();
 
 		if (StayAtSpawn)
 			WanderPoint = transform.position;
@@ -56,6 +58,10 @@ public class GhostBrain : MonoBehaviour
     }
     void Update()
     {
+		anim.SetFloat("x", ai.velocity.normalized.x);
+		anim.SetFloat("y", ai.velocity.normalized.y);
+
+
 		// When the push slows down enough the Ghost should resume normal movement
 		if (beingPushed && rb.velocity.magnitude <= minPushSpeed)
 		{
