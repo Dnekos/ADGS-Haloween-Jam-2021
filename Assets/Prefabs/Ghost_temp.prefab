@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1626875242135857809}
   - component: {fileID: 3276384963631454143}
   - component: {fileID: 3766858739028712999}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ghost_temp
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -166,10 +166,10 @@ MonoBehaviour:
   version: 2
   radius: 1
   height: 2
-  repathRate: 0.5
+  repathRate: 0.1
   canSearch: 1
   canMove: 1
-  maxSpeed: 4
+  maxSpeed: 10
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -180,7 +180,7 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 0.6
+  slowdownDistance: 0
   pickNextWaypointDist: 2
   endReachedDistance: 0.2
   alwaysDrawGizmos: 1
@@ -202,7 +202,7 @@ MonoBehaviour:
   ActiveState: 0
   minPushSpeed: 0.15
   MaxHealth: 5
-  WanderRadius: 5
+  WanderRadius: 10
   DetectRadius: 3
   Chaser: {fileID: 3276384963631454143}
   WanderPoint: {x: 0, y: 0, z: 0}
@@ -252,7 +252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1913668624494239840}
   - component: {fileID: 5631322718132044579}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DetectionVisualizer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

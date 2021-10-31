@@ -18,10 +18,12 @@ public class CameraEase : MonoBehaviour
 		offset = new Vector3(0, 0, -10);
 		if (target == null)
 			target = GameObject.FindGameObjectWithTag("Player").transform;
-    }
+		transform.position = target.position + offset;
 
+	}
+	
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 		transform.position = Vector3.SmoothDamp(transform.position, target.position + offset, ref velocity, smoothTime);
 	}
