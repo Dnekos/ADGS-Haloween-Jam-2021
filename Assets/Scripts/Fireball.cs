@@ -10,6 +10,8 @@ public class Fireball : MonoBehaviour
 	float ExplosionRadius;
 	[SerializeField]
 	float PushForce;
+	[SerializeField]
+	GameObject explosionParticle;
 
 	private Rigidbody2D rb;
 
@@ -57,6 +59,7 @@ public class Fireball : MonoBehaviour
 				gb.PushGhost();
 			}
 		}
+		Instantiate(explosionParticle, transform.position, transform.rotation);
 		Destroy(gameObject);
 	}
 }
