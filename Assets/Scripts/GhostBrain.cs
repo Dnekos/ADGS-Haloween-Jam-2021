@@ -33,6 +33,8 @@ public class GhostBrain : MonoBehaviour
 	Animator anim;
 	[HideInInspector] public Vector3 WanderPoint;
 
+	[SerializeField]
+	GameObject DeathParticle;
 
 	[Header("DEBUG"), SerializeField, Tooltip("Ghost only stays around where it spawned, not near candle")]
 	bool StayAtSpawn = false;
@@ -151,7 +153,7 @@ public class GhostBrain : MonoBehaviour
 			newghost.SpawnConstructor(transform.position, WanderRadius);
 			AudioManager.instance.StopSound("EnemyFloat");
 			AudioManager.instance.PlaySound("EnemyDie");
-
+			Instantiate(DeathParticle, transform.position, transform.rotation);
 			Destroy(gameObject);
 		}
 	}

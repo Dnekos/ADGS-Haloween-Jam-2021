@@ -306,6 +306,7 @@ MonoBehaviour:
   reticle: {fileID: 0}
   fireOffset: 1
   cooldown: 0.5
+  DeathParticle: {fileID: 7357467864167935347, guid: f9e5de8b896947d4784e6bb075372895, type: 3}
 --- !u!95 &3373671917362097832
 Animator:
   serializedVersion: 3
