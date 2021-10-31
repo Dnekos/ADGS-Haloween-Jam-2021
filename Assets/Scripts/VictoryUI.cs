@@ -10,6 +10,7 @@ public class VictoryUI : MonoBehaviour
     void Start()
     {
         timerText.text = PlayTime.instance.minutes + ":" + PlayTime.instance.seconds;
+        Cursor.visible = true;
     }
 
 }
