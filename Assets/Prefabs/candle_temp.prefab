@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8482533533364623001}
   m_Layer: 6
   m_Name: candle_temp
-  m_TagString: Untagged
+  m_TagString: Candle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLit: 1
+  isMasterCandle: 0
   GhostSpawns: 2
   WanderRadius: 3
   ghostPrefab: {fileID: 1626875242135857808, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using TMPro;
 
 public class Candle : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class Candle : MonoBehaviour
 	private void OnCollisionStay2D(Collision2D collision)
 	{
 		Debug.Log("collide");
+
 		if (collision.transform.tag == "Player" && isLit)
 		{
 			SnuffCandle();
@@ -45,12 +47,18 @@ public class Candle : MonoBehaviour
 		if (isMasterCandle)
 		{
 			foreach (Candle candle in FindObjectsOfType<Candle>())
-				if (candle.isLit == true && candle != this)
+				if (candle.isLit && candle != this)
 					return; // dont get snuffed if any other candles are lit
 		}
-
+		
+		// decrement candles remaining on HUD
+        CandlesRemaining hud = GameObject.FindGameObjectWithTag("CandleCount").GetComponent<CandlesRemaining>();
+        hud.DecrementRemainingCandles();	
+        
 		isLit = false;
 		AudioManager.instance.PlaySound("BlowCandle");
+		
+		
 
 		gameObject.layer = 8; // place the object out of the GhostWall layer
 		// define area of the graph to update, so we dont update the whole level
