@@ -47,9 +47,11 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null)
+        if (instance != null && instance != this)
         {
+            Destroy(gameObject);
             Debug.LogError("More then one audio manager!");
+            return;
         }
         else
         {

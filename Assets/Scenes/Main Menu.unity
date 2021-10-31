@@ -606,30 +606,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Blow
+  - name: BlowCandle
     clip: {fileID: 8300000, guid: 71ae0ba365c00a44a866178b2ae2038c, type: 3}
     loop: 0
-    vol: 0
+    vol: 0.812
   - name: CloseDoor
     clip: {fileID: 8300000, guid: c207940847d5a314d85cb5e4b559c3ed, type: 3}
     loop: 0
-    vol: 0
+    vol: 0.477
   - name: FStart
     clip: {fileID: 8300000, guid: 9c717bb5b6619a945ad4a349a6910267, type: 3}
     loop: 0
-    vol: 0
+    vol: 1
   - name: FFly
     clip: {fileID: 8300000, guid: 045b33a3448e0aa4b825fc56c4bbdbc4, type: 3}
     loop: 0
-    vol: 0
+    vol: 0.477
   - name: FHit
     clip: {fileID: 8300000, guid: a3d41f176068de443b033fc52eac9440, type: 3}
     loop: 0
-    vol: 0
+    vol: 0.557
   - name: Click
     clip: {fileID: 8300000, guid: 43ec5cb638199a841bba5ebe8b32535e, type: 3}
     loop: 0
-    vol: 0
+    vol: 0.565
+  - name: PlayerDie
+    clip: {fileID: 8300000, guid: cbba43a4ea243ed44858a3874cb2591f, type: 3}
+    loop: 0
+    vol: 0.692
+  - name: EnemyDie
+    clip: {fileID: 8300000, guid: 087f38ef93c24354fac20cbc0795e2ba, type: 3}
+    loop: 0
+    vol: 0.838
+  - name: EnemyFloat
+    clip: {fileID: 8300000, guid: ddeb26780c4dc084c90b4f7de4a66d51, type: 3}
+    loop: 1
+    vol: 0.02
+  - name: LevelMusic
+    clip: {fileID: 8300000, guid: 36c5300d4391cc64fb43b130c913caa1, type: 3}
+    loop: 1
+    vol: 0.02
 --- !u!4 &468990470
 Transform:
   m_ObjectHideFlags: 0

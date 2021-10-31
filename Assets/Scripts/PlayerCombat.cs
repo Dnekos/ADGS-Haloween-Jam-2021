@@ -61,7 +61,7 @@ public class PlayerCombat : MonoBehaviour
     void Die()
     {		
 		AudioManager.instance.PlaySound("PlayerDie");
-
+        Debug.LogWarning("PLayerDieHere");
         Destroy(gameObject);
 
 		Instantiate(youDiedUI,FindObjectOfType<Canvas>().transform);
