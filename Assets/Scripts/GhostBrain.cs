@@ -102,7 +102,13 @@ public class GhostBrain : MonoBehaviour
 		ai.canMove = pause;
 	}
 
-	public void SpawnConstructor(Vector3 NewWanderPoint, float radius)
+	/// <summary>
+	/// Default Parameters to set up ghost spawning neatly
+	/// </summary>
+	/// <param name="NewWanderPoint">The point at which the ghost sets as his territory and wanders</param>
+	/// <param name="radius">How far away from NewWanderPoint the Ghost goes</param>
+	/// <param name="chase">Wether this ghost is part of the end chase, if true will try to place the ghost away from the exit</param>
+	public void SpawnConstructor(Vector3 NewWanderPoint, float radius, bool chase = false)
 	{
 		Vector2 spawnpoint = (Random.insideUnitCircle.normalized * AstarPath.active.data.gridGraph.depth * 0.5f) + (Vector2)AstarPath.active.data.gridGraph.center;
 		transform.position = spawnpoint;
