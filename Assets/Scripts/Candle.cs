@@ -20,9 +20,6 @@ public class Candle : MonoBehaviour
 	[SerializeField]
 	GameObject ghostPrefab;
 
-	//[SerializeField, Tooltip("How many ghosts spawn in the last wave")]
-	//int LastWaveNum = 5;
-
 	// Start is called before the first frame update
 	void Start()
     {
@@ -37,7 +34,7 @@ public class Candle : MonoBehaviour
 	private void OnCollisionStay2D(Collision2D collision)
 	{
 		Debug.Log("collide");
-		if (collision.transform.tag == "Player" && isLit)// && Player.getComponent<Movement>().blowingout)
+		if (collision.transform.tag == "Player" && isLit)
 		{
 			SnuffCandle();
 		}
@@ -49,7 +46,7 @@ public class Candle : MonoBehaviour
 		{
 			foreach (Candle candle in FindObjectsOfType<Candle>())
 				if (candle.isLit == true && candle != this)
-					return;
+					return; // dont get snuffed if any other candles are lit
 		}
 
 		isLit = false;
@@ -63,7 +60,7 @@ public class Candle : MonoBehaviour
 		for (int i = 0; i < GhostSpawns; i++)
 		{
 			GhostBrain newghost = Instantiate(ghostPrefab).GetComponent<GhostBrain>();
-			newghost.SpawnConstructor(transform.position, WanderRadius);
+			newghost.SpawnConstructor(transform.position, WanderRadius, isMasterCandle);
 		}
 	}
 }

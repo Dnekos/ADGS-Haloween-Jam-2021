@@ -30,6 +30,7 @@ public class GhostBrain : MonoBehaviour
     AIDestinationSetter Chaser;
     IAstarAI ai;
 	Rigidbody2D rb;
+	Animator anim;
 	[HideInInspector] public Vector3 WanderPoint;
 
 
@@ -40,6 +41,7 @@ public class GhostBrain : MonoBehaviour
     {
         ai = GetComponent<IAstarAI>();
 		rb = GetComponent<Rigidbody2D>();
+		anim = GetComponent<Animator>();
 
 		if (StayAtSpawn)
 			WanderPoint = transform.position;
@@ -56,6 +58,10 @@ public class GhostBrain : MonoBehaviour
     }
     void Update()
     {
+		anim.SetFloat("x", ai.velocity.normalized.x);
+		anim.SetFloat("y", ai.velocity.normalized.y);
+
+
 		// When the push slows down enough the Ghost should resume normal movement
 		if (beingPushed && rb.velocity.magnitude <= minPushSpeed)
 		{
@@ -102,7 +108,13 @@ public class GhostBrain : MonoBehaviour
 		ai.canMove = pause;
 	}
 
-	public void SpawnConstructor(Vector3 NewWanderPoint, float radius)
+	/// <summary>
+	/// Default Parameters to set up ghost spawning neatly
+	/// </summary>
+	/// <param name="NewWanderPoint">The point at which the ghost sets as his territory and wanders</param>
+	/// <param name="radius">How far away from NewWanderPoint the Ghost goes</param>
+	/// <param name="chase">Wether this ghost is part of the end chase, if true will try to place the ghost away from the exit</param>
+	public void SpawnConstructor(Vector3 NewWanderPoint, float radius, bool chase = false)
 	{
 		Vector2 spawnpoint = (Random.insideUnitCircle.normalized * AstarPath.active.data.gridGraph.depth * 0.5f) + (Vector2)AstarPath.active.data.gridGraph.center;
 		transform.position = spawnpoint;
