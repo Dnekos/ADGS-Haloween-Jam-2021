@@ -33,6 +33,8 @@ public class GhostBrain : MonoBehaviour
 	Animator anim;
 	[HideInInspector] public Vector3 WanderPoint;
 
+	[SerializeField]
+	GameObject DeathParticle;
 
 	[Header("DEBUG"), SerializeField, Tooltip("Ghost only stays around where it spawned, not near candle")]
 	bool StayAtSpawn = false;
@@ -51,6 +53,10 @@ public class GhostBrain : MonoBehaviour
 		ActiveState = GhostState.Wander;
 		beingPushed = false;
 		ai.canMove = true;
+
+		// Play sound
+		AudioManager.instance.PlaySound("EnemyFloat");
+
 
 		// make sure the visualizer size matches radius
 		GetComponent<CircleCollider2D>().radius = DetectRadius;
@@ -73,14 +79,27 @@ public class GhostBrain : MonoBehaviour
 		// the AI is not already calculating a path and
 		// the ai has reached the end of the path or it has no path at all
 		// the ai is in a Wandering state
-			if (ActiveState == GhostState.Wander && !ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath))
+		if (ActiveState == GhostState.Wander && !ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath))
         {
             ai.destination = PickRandomPoint();
             ai.SearchPath();
         }
-    }
 
-    Vector3 PickRandomPoint()
+		// if there is no way to get to the player (or the point we picked is inaccessible)
+		GraphNode startOfPath = AstarPath.active.GetNearest(transform.position).node;
+		GraphNode endOfPath = AstarPath.active.GetNearest(ai.destination).node;
+		if (PathUtilities.IsPathPossible(startOfPath, endOfPath) == false)
+		{
+			ActiveState = GhostState.Wander; // turn on wander
+			Chaser.enabled = false;
+
+			ai.destination = PickRandomPoint();
+			ai.SearchPath();
+		}
+
+	}
+
+	Vector3 PickRandomPoint()
     {
         var point = Random.insideUnitSphere * WanderRadius;
         point.z = transform.position.z; // flatten point for 2D
@@ -92,12 +111,14 @@ public class GhostBrain : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player") // if we find the player
-        {
-            ActiveState = GhostState.Chase; // turn off wander
-            Chaser.enabled = true;
-            Chaser.target = collision.transform; // set player as our target to chase
-        }
+			StartChase(collision.transform);
     }
+	void StartChase(Transform player)
+	{
+		ActiveState = GhostState.Chase; // turn off wander
+		Chaser.enabled = true;
+		Chaser.target = player.transform; // set player as our target to chase
+	}
 
 	/// <summary>
 	/// disable/enable enemy movement
@@ -116,12 +137,25 @@ public class GhostBrain : MonoBehaviour
 	/// <param name="chase">Wether this ghost is part of the end chase, if true will try to place the ghost away from the exit</param>
 	public void SpawnConstructor(Vector3 NewWanderPoint, float radius, bool chase = false)
 	{
-		Vector2 spawnpoint = (Random.insideUnitCircle.normalized * AstarPath.active.data.gridGraph.depth * 0.5f) + (Vector2)AstarPath.active.data.gridGraph.center;
+		Vector2 spawnpoint;
+		Vector2 doorpos = FindObjectOfType<ExitDoor>().transform.position;
+		if (chase)
+			spawnpoint = (Vector2.up * AstarPath.active.data.gridGraph.depth * 0.5f) + (Vector2)AstarPath.active.data.gridGraph.center + Vector2.right * Random.Range(-15,15);
+		else
+			spawnpoint = (Random.insideUnitCircle.normalized * AstarPath.active.data.gridGraph.depth * 0.5f) + (Vector2)AstarPath.active.data.gridGraph.center;
+
+		if (chase)
+		{
+			AudioManager.instance.StopSound("LevelMusic");
+			AudioManager.instance.PlaySound("ChaseMusic");
+
+			StartChase(FindObjectOfType<PlayerCombat>().transform);
+		}
+
 		transform.position = spawnpoint;
 		WanderPoint = NewWanderPoint;
 		WanderRadius = radius;
 		//ai.canMove = true;
-
 	}
 
 	public void PushGhost()
@@ -132,7 +166,9 @@ public class GhostBrain : MonoBehaviour
 		{
 			GhostBrain newghost = Instantiate(gameObject).GetComponent<GhostBrain>();
 			newghost.SpawnConstructor(transform.position, WanderRadius);
-			
+			AudioManager.instance.StopSound("EnemyFloat");
+			AudioManager.instance.PlaySound("EnemyDie");
+			Instantiate(DeathParticle, transform.position, transform.rotation);
 			Destroy(gameObject);
 		}
 	}

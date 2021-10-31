@@ -18,6 +18,9 @@ public class PlayerCombat : MonoBehaviour
     private float timeElapsedSinceFiring;
 	Vector2 vecBtwnMouseAndPlayer;
 
+	[SerializeField]
+	GameObject DeathParticle;
+
 	private GameObject projectile;
     private Vector2 launchDir;
 	private Animator anim;
@@ -35,6 +38,8 @@ public class PlayerCombat : MonoBehaviour
         float angle = Mathf.Atan2(vecBtwnMouseAndPlayer.y, vecBtwnMouseAndPlayer.x);
 		projectile = Instantiate(fireBall, transform.position + (fireOffset * new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)))
 			, Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg));// * 0.5f));
+
+		AudioManager.instance.PlaySound("FStart");
 
 		timeElapsedSinceFiring = cooldown;
     }
@@ -57,9 +62,15 @@ public class PlayerCombat : MonoBehaviour
             Die();
     }   
     void Die()
-    {
+    {		
+		AudioManager.instance.PlaySound("PlayerDie");
+		Instantiate(DeathParticle, transform.position, transform.rotation);
+
+    
         Destroy(gameObject);
-        Instantiate(youDiedUI);
+		AudioManager.instance.PlaySound("PlayerDie");
+		Instantiate(youDiedUI,FindObjectOfType<Canvas>().transform);
+		GetComponent<PlayerInput>().actions.actionMaps[1].Enable();
     }
 
 }
