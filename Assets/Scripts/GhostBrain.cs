@@ -144,7 +144,7 @@ public class GhostBrain : MonoBehaviour
 		{
 			spawnpoint = (Random.insideUnitCircle.normalized * AstarPath.active.data.gridGraph.depth * 0.5f) + (Vector2)AstarPath.active.data.gridGraph.center;
 			redundancy++;
-		} while (chase || Vector2.Distance(spawnpoint, doorpos) < AstarPath.active.data.gridGraph.depth * 0.8f || redundancy < 100);
+		} while (chase && Vector2.Distance(spawnpoint, doorpos) < AstarPath.active.data.gridGraph.depth * 0.8f && redundancy < 100);
 
 		if (chase)
 			StartChase(FindObjectOfType<PlayerCombat>().transform);
