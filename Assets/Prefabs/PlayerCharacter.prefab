@@ -219,6 +219,7 @@ MonoBehaviour:
   enableBoost: 1
   maxBoostSpeed: 10
   minSpeed: 0.05
+  pauseMenu: {fileID: 9115395637752115245, guid: b49d02086c477e84fb79902651714892, type: 3}
 --- !u!114 &2392911365265117415
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,11 +20,14 @@ public class PlayerMovement : MonoBehaviour
 
 	[SerializeField] private float minSpeed = .05f;
 
+	[SerializeField] private GameObject pauseMenu;
+
 	private Vector2 inputDir;
 	private Rigidbody2D rigidBody;
 
 	private bool isBoosting = false;
 	private PlayerInput input;
+	private GameObject currentPauseMenu;
 
 	// Start is called before the first frame update
 	void Start()
@@ -33,30 +36,37 @@ public class PlayerMovement : MonoBehaviour
 		 input = GetComponent<PlayerInput>();
 	}
 
+	public void TogglePause()
+	{
+			isPaused = !isPaused;
+    		
+    		Cursor.visible = isPaused;
+    		Time.timeScale = ((isPaused) ? 0f:1f);
+    
+    		if (isPaused)
+            {
+	            currentPauseMenu = Instantiate(pauseMenu);
+    			input.actions.Disable();
+    			input.actions.actionMaps[1].Enable();
+    		}
+    		else
+    		{
+	            Destroy(currentPauseMenu);
+    			input.actions.Enable();
+    			input.actions.actionMaps[1].Disable();
+    		}
+    		
+    
+    		// grab all current ghosts and pause them
+    		foreach (GhostBrain ghost in GameObject.FindObjectsOfType<GhostBrain>())
+    			ghost.OnPause(isPaused);	
+	}
+
 	public void OnPause(InputAction.CallbackContext context)
 	{
 		float val = context.ReadValue<float>();
 		if (val==1f)
-			isPaused = !isPaused;
-		
-		Cursor.visible = isPaused;
-		Time.timeScale = ((isPaused) ? 0f:1f);
-
-		if (isPaused)
-		{
-			input.actions.Disable();
-			input.actions.actionMaps[1].Enable();
-		}
-		else
-		{
-			input.actions.Enable();
-			input.actions.actionMaps[1].Disable();
-		}
-		
-
-		// grab all current ghosts and pause them
-		foreach (GhostBrain ghost in GameObject.FindObjectsOfType<GhostBrain>())
-			ghost.OnPause(isPaused);
+			TogglePause();
 	}
 
 	public void OnMove(InputAction.CallbackContext context)
