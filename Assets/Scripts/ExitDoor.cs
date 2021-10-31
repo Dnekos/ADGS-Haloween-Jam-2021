@@ -14,6 +14,7 @@ public class ExitDoor : MonoBehaviour
 					return; // dont get snuffed if any other candles are lit
 			
 			AudioManager.instance.PlaySound("CloseDoor");
+			PlayTime.instance.isPlaying = false;
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 		}
 	}
