@@ -237,7 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLit: 1
   isMasterCandle: 0
-  GhostSpawns: 3
+  GhostSpawns: 1
   WanderRadius: 10
   ghostPrefab: {fileID: 1626875242135857808, guid: 2e397c4efc20acf44bb61ccc7d0014be, type: 3}
 --- !u!58 &6102516564902826646
