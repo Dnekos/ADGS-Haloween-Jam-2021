@@ -147,7 +147,12 @@ public class GhostBrain : MonoBehaviour
 		} while (chase && Vector2.Distance(spawnpoint, doorpos) < AstarPath.active.data.gridGraph.depth * 0.8f && redundancy < 100);
 
 		if (chase)
+		{
+			AudioManager.instance.StopSound("LevelMusic");
+			AudioManager.instance.PlaySound("ChaseMusic");
+
 			StartChase(FindObjectOfType<PlayerCombat>().transform);
+		}
 
 		transform.position = spawnpoint;
 		WanderPoint = NewWanderPoint;
