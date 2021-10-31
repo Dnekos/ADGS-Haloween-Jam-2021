@@ -16,7 +16,7 @@ public class FollowMouse : MonoBehaviour
     void Update()
     {
         Vector2 mousePos = Mouse.current.position.ReadValue();
-        Debug.Log("Mouse: "+mousePos);
+        //Debug.Log("Mouse: "+mousePos);
         transform.position = mousePos;
     }
 }

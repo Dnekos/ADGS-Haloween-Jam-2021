@@ -149,6 +149,7 @@ MonoBehaviour:
   ImpulseSpeed: 7
   ExplosionRadius: 2
   PushForce: 20
+  explosionParticle: {fileID: 8574807711772356755, guid: 42a1f483cf84b0a4fb42cebdb2f35571, type: 3}
 --- !u!50 &2147636734216770503
 Rigidbody2D:
   serializedVersion: 4

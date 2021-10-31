@@ -4370,6 +4370,10 @@ PrefabInstance:
       propertyPath: reticle
       value: 
       objectReference: {fileID: 1410061193}
+    - target: {fileID: 2392911365265117415, guid: 058a848f24cacc6498d8195f86d20600, type: 3}
+      propertyPath: youDiedUI
+      value: 
+      objectReference: {fileID: 1792459373802835012, guid: ac10ab09427b2ba47a2c88ca04810b30, type: 3}
     - target: {fileID: 5885507937849602282, guid: 058a848f24cacc6498d8195f86d20600, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter

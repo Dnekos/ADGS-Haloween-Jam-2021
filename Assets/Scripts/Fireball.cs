@@ -10,6 +10,8 @@ public class Fireball : MonoBehaviour
 	float ExplosionRadius;
 	[SerializeField]
 	float PushForce;
+	[SerializeField]
+	GameObject explosionParticle;
 
 	private Rigidbody2D rb;
 
@@ -18,10 +20,11 @@ public class Fireball : MonoBehaviour
 		rb = GetComponent<Rigidbody2D>();
 		rb.AddForce(transform.right * ImpulseSpeed, ForceMode2D.Impulse);
 		//rb.AddRelativeForce(transform.rotation.eulerAngles * ImpulseSpeed ,ForceMode2D.Impulse);
+		AudioManager.instance.PlaySound("FFly");
 	}
 
 	// Update is called once per frame
-    void Update()
+	void Update()
     {
         
     }
@@ -57,6 +60,10 @@ public class Fireball : MonoBehaviour
 				gb.PushGhost();
 			}
 		}
+		AudioManager.instance.StopSound("FFly");
+		AudioManager.instance.PlaySound("FHit");
+
+		Instantiate(explosionParticle, transform.position, transform.rotation);
 		Destroy(gameObject);
 	}
 }

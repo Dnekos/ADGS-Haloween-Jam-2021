@@ -59,7 +59,9 @@ public class PlayerCombat : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
-        Instantiate(youDiedUI);
+		AudioManager.instance.PlaySound("PlayerDie");
+
+		Instantiate(youDiedUI,FindObjectOfType<Canvas>().transform);
     }
 
 }

@@ -52,6 +52,10 @@ public class GhostBrain : MonoBehaviour
 		beingPushed = false;
 		ai.canMove = true;
 
+		// Play sound
+		AudioManager.instance.PlaySound("EnemyFloat");
+
+
 		// make sure the visualizer size matches radius
 		GetComponent<CircleCollider2D>().radius = DetectRadius;
         transform.GetChild(0).localScale = new Vector3(DetectRadius * 2, DetectRadius * 2, 1); 
@@ -73,14 +77,27 @@ public class GhostBrain : MonoBehaviour
 		// the AI is not already calculating a path and
 		// the ai has reached the end of the path or it has no path at all
 		// the ai is in a Wandering state
-			if (ActiveState == GhostState.Wander && !ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath))
+		if (ActiveState == GhostState.Wander && !ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath))
         {
             ai.destination = PickRandomPoint();
             ai.SearchPath();
         }
-    }
 
-    Vector3 PickRandomPoint()
+		// if there is no way to get to the player (or the point we picked is inaccessible)
+		GraphNode startOfPath = AstarPath.active.GetNearest(transform.position).node;
+		GraphNode endOfPath = AstarPath.active.GetNearest(ai.destination).node;
+		if (PathUtilities.IsPathPossible(startOfPath, endOfPath) == false)
+		{
+			ActiveState = GhostState.Wander; // turn on wander
+			Chaser.enabled = false;
+
+			ai.destination = PickRandomPoint();
+			ai.SearchPath();
+		}
+
+	}
+
+	Vector3 PickRandomPoint()
     {
         var point = Random.insideUnitSphere * WanderRadius;
         point.z = transform.position.z; // flatten point for 2D
@@ -132,7 +149,9 @@ public class GhostBrain : MonoBehaviour
 		{
 			GhostBrain newghost = Instantiate(gameObject).GetComponent<GhostBrain>();
 			newghost.SpawnConstructor(transform.position, WanderRadius);
-			
+			AudioManager.instance.StopSound("EnemyFloat");
+			AudioManager.instance.PlaySound("EnemyDie");
+
 			Destroy(gameObject);
 		}
 	}
