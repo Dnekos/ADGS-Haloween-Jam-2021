@@ -24,20 +24,35 @@ public class PlayerMovement : MonoBehaviour
 	private Rigidbody2D rigidBody;
 
 	private bool isBoosting = false;
+	private PlayerInput input;
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		 rigidBody = GetComponent<Rigidbody2D>();
-		 
+		 input = GetComponent<PlayerInput>();
 	}
 
 	public void OnPause(InputAction.CallbackContext context)
 	{
-		if (context.ReadValue<float>() == 1)
+		float val = context.ReadValue<float>();
+		if (val==1f)
 			isPaused = !isPaused;
 		
 		Cursor.visible = isPaused;
+		Time.timeScale = ((isPaused) ? 0f:1f);
+
+		if (isPaused)
+		{
+			input.actions.Disable();
+			input.actions.actionMaps[1].Enable();
+		}
+		else
+		{
+			input.actions.Enable();
+			input.actions.actionMaps[1].Disable();
+		}
+		
 
 		// grab all current ghosts and pause them
 		foreach (GhostBrain ghost in GameObject.FindObjectsOfType<GhostBrain>())
