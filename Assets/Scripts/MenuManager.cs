@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
-    
+	[SerializeField]
+	GameObject Blackout;
+
 	public void ExitGame()
 	{
 		AudioManager.instance.PlaySound("Click");
@@ -18,6 +20,6 @@ public class MenuManager : MonoBehaviour
 	public void BeginGame(int index)
 	{
 		AudioManager.instance.PlaySound("Click");
-		SceneManager.LoadScene(index);
+		Instantiate(Blackout).GetComponentInChildren<BlackoutScript>().index = index;
 	}
 }

@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class YouDiedUI : MonoBehaviour
 {
-    public void OnRetry(InputAction.CallbackContext context)
+	[SerializeField]
+	GameObject Blackout;
+
+	public void OnRetry(InputAction.CallbackContext context)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+		Instantiate(Blackout).GetComponentInChildren<BlackoutScript>().index = SceneManager.GetActiveScene().buildIndex;
+	}
 }

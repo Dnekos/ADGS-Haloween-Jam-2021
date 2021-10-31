@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ExitDoor : MonoBehaviour
 {
+	[SerializeField]
+	GameObject Blackout;
+
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.tag == "Player")
@@ -16,6 +19,7 @@ public class ExitDoor : MonoBehaviour
 			AudioManager.instance.PlaySound("CloseDoor");
 			PlayTime.instance.isPlaying = false;
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+			Instantiate(Blackout).GetComponentInChildren<BlackoutScript>().index = SceneManager.GetActiveScene().buildIndex + 1;
 		}
 	}
 }

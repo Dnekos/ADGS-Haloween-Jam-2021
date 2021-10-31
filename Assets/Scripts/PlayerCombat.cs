@@ -64,10 +64,13 @@ public class PlayerCombat : MonoBehaviour
     void Die()
     {		
 		AudioManager.instance.PlaySound("PlayerDie");
-        Destroy(gameObject);
 		Instantiate(DeathParticle, transform.position, transform.rotation);
 
+    
+        Destroy(gameObject);
+		AudioManager.instance.PlaySound("PlayerDie");
 		Instantiate(youDiedUI,FindObjectOfType<Canvas>().transform);
+		GetComponent<PlayerInput>().actions.actionMaps[1].Enable();
     }
 
 }
