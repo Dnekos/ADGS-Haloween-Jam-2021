@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ad8c0c9ca4b665439e4399ffb4f02b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImpulseSpeed: 7
+  ImpulseSpeed: 20
   ExplosionRadius: 2
   PushForce: 20
   explosionParticle: {fileID: 8574807711772356755, guid: 42a1f483cf84b0a4fb42cebdb2f35571, type: 3}
