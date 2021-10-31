@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 8482533533364622981}
   - component: {fileID: 8482533533364623001}
   m_Layer: 6
-  m_Name: candle_temp
+  m_Name: Candle 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,7 +142,6 @@ Transform:
   m_Children:
   - {fileID: 2884078805516352565}
   - {fileID: 6407005848971966583}
-  - {fileID: 5140395442111817025}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -186,8 +185,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5fef347f388d31944858f6dc6f731275, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 2439228211136827020, guid: 9486d7c7b93b0754fa09690a384bddfc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -215,7 +214,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.14, y: 2.47}
+    oldSize: {x: 1.3, y: 2.11}
     newSize: {x: 1.14, y: 2.47}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -268,6 +267,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Candle fire prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 6312450951313291434, guid: 4f08519396cc5114e9ba55046f6b8d19, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6312450951313291435, guid: 4f08519396cc5114e9ba55046f6b8d19, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -282,11 +285,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6312450951313291435, guid: 4f08519396cc5114e9ba55046f6b8d19, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.068
+      value: -0.087
       objectReference: {fileID: 0}
     - target: {fileID: 6312450951313291435, guid: 4f08519396cc5114e9ba55046f6b8d19, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.22
+      value: 1.408
       objectReference: {fileID: 0}
     - target: {fileID: 6312450951313291435, guid: 4f08519396cc5114e9ba55046f6b8d19, type: 3}
       propertyPath: m_LocalPosition.z
@@ -326,74 +329,4 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6312450951313291435, guid: 4f08519396cc5114e9ba55046f6b8d19, type: 3}
   m_PrefabInstance: {fileID: 1112412668855582940}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1210358726822092266
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 8482533533364623000}
-    m_Modifications:
-    - target: {fileID: 6312450951313291433, guid: 4f08519396cc5114e9ba55046f6b8d19, type: 3}
-      propertyPath: m_Name
-      value: Candle fire prefab (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312450951313291435, guid: 4f08519396cc5114e9ba55046f6b8d19, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312450951313291435, guid: 4f08519396cc5114e9ba55046f6b8d19, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.12076466
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312450951313291435, guid: 4f08519396cc5114e9ba55046f6b8d19, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.2387818
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312450951313291435, guid: 4f08519396cc5114e9ba55046f6b8d19, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.258
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312450951313291435, guid: 4f08519396cc5114e9ba55046f6b8d19, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.552
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312450951313291435, guid: 4f08519396cc5114e9ba55046f6b8d19, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312450951313291435, guid: 4f08519396cc5114e9ba55046f6b8d19, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312450951313291435, guid: 4f08519396cc5114e9ba55046f6b8d19, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312450951313291435, guid: 4f08519396cc5114e9ba55046f6b8d19, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312450951313291435, guid: 4f08519396cc5114e9ba55046f6b8d19, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312450951313291435, guid: 4f08519396cc5114e9ba55046f6b8d19, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312450951313291435, guid: 4f08519396cc5114e9ba55046f6b8d19, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312450951313291435, guid: 4f08519396cc5114e9ba55046f6b8d19, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4f08519396cc5114e9ba55046f6b8d19, type: 3}
---- !u!4 &5140395442111817025 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6312450951313291435, guid: 4f08519396cc5114e9ba55046f6b8d19, type: 3}
-  m_PrefabInstance: {fileID: 1210358726822092266}
   m_PrefabAsset: {fileID: 0}
