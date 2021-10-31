@@ -12,5 +12,8 @@ public class YouDiedUI : MonoBehaviour
 	public void OnRetry(InputAction.CallbackContext context)
     {
 		Instantiate(Blackout).GetComponentInChildren<BlackoutScript>().index = SceneManager.GetActiveScene().buildIndex;
+		AudioManager.instance.PlayLevelIfNot();
+		AudioManager.instance.StopSound("ChaseMusic");
+
 	}
 }

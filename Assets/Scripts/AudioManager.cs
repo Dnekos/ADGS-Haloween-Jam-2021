@@ -69,6 +69,11 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		PlayLevelIfNot()
+		AudioManager.instance.StopSound("ChaseMusic");
+	}
+	public void PlayLevelIfNot()
+	{
 		for (int i = 0; i < sounds.Length; i++)
 		{
 			if (sounds[i].name == "LevelMusic")
@@ -77,9 +82,7 @@ public class AudioManager : MonoBehaviour
 				return;
 			}
 		}
-		AudioManager.instance.StopSound("ChaseMusic");
 	}
-
 	public void PlaySound(string _name)
     {
         for (int i = 0; i < sounds.Length; i++)
