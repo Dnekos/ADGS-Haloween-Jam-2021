@@ -151,9 +151,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActiveState: 0
   minPushSpeed: 0.2
-  MaxHealth: 5
-  WanderRadius: 5
-  DetectRadius: 3
+  MaxHealth: 3
+  WanderRadius: 10
+  DetectRadius: 10
   Chaser: {fileID: 3276384963631454143}
   WanderPoint: {x: 0, y: 0, z: 0}
   DeathParticle: {fileID: 520045911913963866, guid: 1821d62796a4f7b49853c73efc3f1e78, type: 3}
@@ -393,7 +393,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.51
-  m_PointLightOuterRadius: 2.09
+  m_PointLightOuterRadius: 10
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
