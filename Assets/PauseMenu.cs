@@ -27,6 +27,8 @@ public class PauseMenu : MonoBehaviour
 
     public void OnMenuClick()
     {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().TogglePause();
+        Cursor.visible = true;
         SceneManager.LoadScene(0);
     }
 }

@@ -22,4 +22,10 @@ public class MenuManager : MonoBehaviour
 		AudioManager.instance.PlaySound("Click");
 		Instantiate(Blackout).GetComponentInChildren<BlackoutScript>().index = index;
 	}
+
+	public void ResetAudio()
+    {
+		AudioManager.instance.StopSound("ChaseMusic");
+		AudioManager.instance.PlayLevelIfNot();
+	}
 }

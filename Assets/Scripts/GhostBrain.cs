@@ -126,7 +126,7 @@ public class GhostBrain : MonoBehaviour
 	/// <param name="pause">whether the game is paused or not</param>
 	public void OnPause(bool pause)
 	{
-		ai.canMove = pause;
+		ai.canMove = !pause;
 	}
 
 	/// <summary>
